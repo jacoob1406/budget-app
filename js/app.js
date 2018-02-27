@@ -19,9 +19,21 @@ class HTML {
     document.getElementById('adding').insertBefore(messageWrapper, addExpenseForm);
 
     setTimeout(function(){
-      messageWrapper
+      messageWrapper.remove();
     }, 3000);
   }
+
+  addExpenses(name, amount) {
+    const list = document.querySelector('#expenses ul');
+    const li = document.createElement('li');
+    li.className = 'classname'; //TODO later
+    li.innerHTML = `
+      ${name}
+      <span class="className">$${amount}</span>
+    `;  //TODO classname
+    list.appendChild(li);
+    addExpenseForm.reset();
+}
 }
 
 
@@ -57,7 +69,7 @@ function eventListeners() {
     if (expenseName === '' || amount === ''){
       html.printMessage('All fields are mandatory', 'error');
     } else {
-      console.log('OK');
+      html.addExpenses(expenseName, amount);
     }
   });
 }
