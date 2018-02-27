@@ -51,7 +51,6 @@ class HTML {
   }
 }
 
-
 const addExpenseForm = document.getElementById('add-expense');
 const budgetTotal = document.getElementById('total');
 const budgetLeft = document.getElementById('left');
@@ -71,7 +70,6 @@ function eventListeners() {
       window.location.reload();
     } else {
       budget = new Budget(userBudget);
-
       html.insertBudget(budget.budget);
     }
   });
