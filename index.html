@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
   <title>Weekly Budget APP</title>
 </head>
 
@@ -15,17 +16,17 @@
       <h1 class="header__heading">My Weekly Budget APP</h1>
     </header>
     <section class="section">
-        <div class="section__col">
+        <div class="section__col" id="adding">
           <h2 class="section__col__heading">Add your Expenses here...</h2>
-          <form id="add-expense" action="#" class="section__col__form">
-              <label for="expense">Name:</label>
-              <input type="text" class="form-control" id="expense" placeholder="Eg. Transportation">
-              <label for="amount">Amount:</label>
-              <input type="text" class="form-control" id="amount" placeholder="Eg. 20">
-            <button type="submit" class="btn btn-primary">Add</button>
+          <form class="section__col__form" id="add-expense" action="#" novalidate>
+              <label for="expense" class="section__col__form__label">Name:</label>
+              <input type="text" class="section__col__form__input" id="expense" placeholder="Eg. Transportation">
+              <label for="amount" class="section__col__form__label">Amount:</label>
+              <input type="text" class="section__col__form__input" id="amount" placeholder="Eg. 20">
+            <button type="submit" class="section__col__form__button">Add</button>
           </form>
         </div>
-        <div class="col">
+        <div class="section__col">
           <h2 class="section__col__heading">List</h2>
           <div id="expenses">
             <ul class="list-group"></ul>

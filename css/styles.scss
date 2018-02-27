@@ -1,3 +1,53 @@
-*{
+body {
   background-color: lightblue;
+}
+
+*{
+  font-family: 'PT Sans', sans-serif;
+}
+
+.header__heading{
+  text-align: center;
+  }
+
+.section{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px; //TODO zrób potem mixin
+  background-color: #fff;
+  padding: 15px;
+  display: flex;
+    flex-flow: wrap;
+
+  &__col{
+    flex: 0 0 50%;
+
+    &__heading{
+      text-align: center;
+    }
+
+    &__form{
+      &__label{
+        display: block;
+      }
+      &__input{
+          display: block;
+          margin-bottom: 15px;
+          width: 80%;
+      }
+
+      &__button{
+        width: 60%;
+        text-align: center;
+        margin-left: 10%;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 700px){
+  .section{
+    display: block;
+  }
 }
