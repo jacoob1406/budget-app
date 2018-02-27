@@ -65,7 +65,7 @@ eventListeners();
 function eventListeners() {
 
   document.addEventListener('DOMContentLoaded', function() {
-    userBudget = prompt(' Input your weekly budget ');
+    userBudget = prompt(' Input your budget ');
 
     if (isNaN(userBudget) || userBudget === null || userBudget === '' || userBudget === '0') {
       window.location.reload();
