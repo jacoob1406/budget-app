@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.min.css">
   <link rel="stylesheet" href="css/normalize.css">
   <title>Weekly Budget APP</title>
@@ -16,32 +16,32 @@
       <h1 class="header__heading">My Weekly Budget APP</h1>
     </header>
     <section class="section">
-        <div class="section__col" id="adding">
-          <h2 class="section__col__heading">Add your Expenses here...</h2>
-          <form class="section__col__form" id="add-expense" action="#" novalidate>
-              <label for="expense" class="section__col__form__label">Name:</label>
-              <input type="text" class="section__col__form__input" id="expense" placeholder="Eg. Transportation">
-              <label for="amount" class="section__col__form__label">Amount:</label>
-              <input type="text" class="section__col__form__input" id="amount" placeholder="Eg. 20">
-            <button type="submit" class="section__col__form__button">Add</button>
-          </form>
+      <div class="section__col" id="adding">
+        <h2 class="section__col__heading section__col__heading--first">Add your Expenses here...</h2>
+        <form class="section__col__form" id="add-expense" action="#" novalidate>
+          <label for="expense" class="section__col__form__label">Name:</label>
+          <input type="text" class="section__col__form__input" id="expense" placeholder="Eg. Transportation">
+          <label for="amount" class="section__col__form__label">Amount:</label>
+          <input type="number" class="section__col__form__input" id="amount" placeholder="Eg. 20">
+          <button type="submit" class="section__col__form__button">Add</button>
+        </form>
+      </div>
+      <div class="section__col">
+        <h2 class="section__col__heading">Expenses</h2>
+        <div id="expenses" class="section__col__expenses">
+          <ul class="section__col__expenses__list"></ul>
         </div>
-        <div class="section__col">
-          <h2 class="section__col__heading">List</h2>
-          <div id="expenses">
-            <ul class="list-group"></ul>
+        <div id="budget" class="section__col__budget">
+          <div class="section__col__budget__item section__col__budget__item--total">
+            <p>Budget: $<span id="total"></span> </p>
           </div>
-          <div id="budget" class="budget">
-            <div class="alert alert-primary">
-              <p>Budget: $ <span id="total"></span> </p>
-            </div>
-            <div class="restante alert alert-success">
-              <p>Left: $ <span id="left"></span></p>
-            </div>
+          <div id="moneyLeft" class="section__col__budget__item section__col__budget__item--left">
+            <p>Left: $<span id="left"></span></p>
           </div>
         </div>
+      </div>
     </section>
-    </div>
+  </div>
   <script src="js/app.js"></script>
 </body>
 

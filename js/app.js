@@ -3,6 +3,10 @@ class Budget {
     this.budget = Number(budget);
     this.budgetLeft = budget;
   }
+
+  substract(amount) {
+    return this.budgetLeft -= amount;
+  }
 }
 
 class HTML {
@@ -11,14 +15,14 @@ class HTML {
     budgetLeft.innerHTML = amount;
   }
 
-  printMessage(message, className){
+  printMessage(message, className) {
     const messageWrapper = document.createElement('div');
-    messageWrapper.classList.add('class1', 'class2', className);
+    messageWrapper.classList.add(className);
     messageWrapper.appendChild(document.createTextNode(message));
 
     document.getElementById('adding').insertBefore(messageWrapper, addExpenseForm);
 
-    setTimeout(function(){
+    setTimeout(function() {
       messageWrapper.remove();
     }, 3000);
   }
@@ -26,14 +30,25 @@ class HTML {
   addExpenses(name, amount) {
     const list = document.querySelector('#expenses ul');
     const li = document.createElement('li');
-    li.className = 'classname'; //TODO later
+    li.className = 'section__col__expenses__list__item';
     li.innerHTML = `
       ${name}
-      <span class="className">$${amount}</span>
-    `;  //TODO classname
+      <span class="section__col__expenses__list__price">$${amount}</span>
+    `;
     list.appendChild(li);
     addExpenseForm.reset();
-}
+  }
+
+  changeBudget(amount){
+    const budgetChanged = budget.substract(amount);
+    budgetLeft.innerHTML = `${budgetChanged}`;
+
+    if ((budget.budget / 4) > budgetChanged) {
+      document.getElementById('moneyLeft').style.backgroundColor = '#ff3d3d ';
+    } else if ((budget.budget / 2 ) > budgetChanged) {
+      document.getElementById('moneyLeft').style.backgroundColor = '#e09706';
+    }
+  }
 }
 
 
@@ -52,7 +67,7 @@ function eventListeners() {
   document.addEventListener('DOMContentLoaded', function() {
     userBudget = prompt(' Input your weekly budget ');
 
-    if (userBudget === null || userBudget === '' || userBudget === '0') {
+    if (isNaN(userBudget) || userBudget === null || userBudget === '' || userBudget === '0') {
       window.location.reload();
     } else {
       budget = new Budget(userBudget);
@@ -62,14 +77,14 @@ function eventListeners() {
   });
 
   addExpenseForm.addEventListener('submit', function(e) {
-    //e.preventDefault();
     const expenseName = document.getElementById('expense').value;
     const amount = document.getElementById('amount').value;
 
-    if (expenseName === '' || amount === ''){
+    if (expenseName === '' || amount === '') {
       html.printMessage('All fields are mandatory', 'error');
     } else {
       html.addExpenses(expenseName, amount);
+      html.changeBudget(amount);
     }
   });
 }
