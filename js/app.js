@@ -11,8 +11,8 @@ class Budget {
 
 class HTML {
   insertBudget(amount) {
-    budgetTotal.innerHTML = amount;
-    budgetLeft.innerHTML = amount;
+    budgetTotal.innerHTML = `$${amount}`;
+    budgetLeft.innerHTML = `$${amount}`;
   }
 
   printMessage(message, className) {
@@ -41,7 +41,7 @@ class HTML {
 
   changeBudget(amount){
     const budgetChanged = budget.substract(amount);
-    budgetLeft.innerHTML = `${budgetChanged}`;
+    budgetLeft.innerHTML = `$${budgetChanged}`;
 
     if ((budget.budget / 4) > budgetChanged) {
       document.getElementById('moneyLeft').style.backgroundColor = '#ff3d3d ';
